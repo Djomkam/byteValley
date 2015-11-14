@@ -1,0 +1,68 @@
+/***********************************/
+/* CORE  CSS FILE				   */
+/* CONTAINS GLOBAL CSS STYLING.	   */
+/* 								   */
+/* SHOULD ONLY BE MODIFIED BY	   */
+/* A SENIOR ENGINEER.			   */
+/* 								   */
+/* Yong Nkfum Sept, 13 2015		   */
+/* ByteValley. All rights reserved */
+/* 								   */
+/***********************************/
+
+body {
+	font-size: 13px;
+}
+
+/* wrapper holds all content */
+.wrapper{
+	position: relative;
+	min-height:100vh;
+	
+	/* Height of header and footer elements is 7em. Values will change in due time */
+	padding:7em 0;
+}
+
+/* styling the footer elements */
+.footer {
+	width: 100%;
+	
+	/* height is same value as wrapper bottom padding */
+	height:7em; 
+	background-color: #011f4b; 
+	color: #fff;  
+	position:absolute; 
+	
+	/* stick to the bottom */
+	bottom: 0px; 
+	left: 0px;
+}
+
+.footer_content {
+	width: 45em; 
+	margin: 1em auto;
+}
+
+.footer_content .ulist {
+	list-style-type: none;
+}
+
+.footer_content .ulist li {
+	display: inline; 
+	margin-right: 1em; 
+	font-size: 110%;
+}
+
+.footer_content a {
+	color: #fff;
+}
+
+.footer_copyright {
+	text-align: center; 
+	margin: auto;
+}
+/* end- styling the footer elements */
+
+/* Styling for the sidebar */
+
+/* End of styling for the sidebar */

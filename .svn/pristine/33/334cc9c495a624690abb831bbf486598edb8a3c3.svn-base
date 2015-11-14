@@ -1,0 +1,24 @@
+# database properties
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/SocialManager?createDatabaseIfNotExist=true
+spring.datasource.username=root
+spring.datasource.password=
+spring.datasource.maximum-pool-size=100
+
+ 
+# social properties
+spring.social.facebook.appId=462992690532498
+spring.social.facebook.appSecret=db7364b4bd1824c0ce8c3b837d16b620
+spring.social.twitter.appId=LfN7DMrQQ2sv8h53hf069o5Ka
+spring.social.twitter.appSecret=MnDPv93yg2wKilFNT19GdK1ejYeq6d9cyDWSSUENFzQ8m3q4z7
+
+
+# Application Url
+
+# Hibernate properties (jpa)
+spring.jpa.hibernate.ddl-auto=create-drop
+spring.jpa.show-sql=false
+spring.jpa.database=mysql
+
+#Thymeleaf
+spring.thymeleaf.cache=false

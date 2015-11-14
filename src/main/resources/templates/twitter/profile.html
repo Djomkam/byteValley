@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang='en'
+	xmlns:th='http://www.thymeleaf.org' 
+	xmlns:sec='http://www.thymeleaf.org/thymeleaf-extras-springsecurity3'
+	xmlns:social='http://spring.io/springsocial'>
+  <head th:replace='fragments/head :: th-head'>
+    
+  </head>
+  <body class='skin-black sidebar-mini'>
+    <div class='wrapper'>
+
+      <!-- Main Header -->
+      <header th:replace='fragments/header :: header'>
+
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside th:replace='fragments/sidebar :: th-sidebar'>
+
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class='content-wrapper' style='height:450px;'>
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Page Header
+            <small>Optional description</small>
+          </h1>
+          <ol class='breadcrumb'>
+            <li><a href='#'><i class='fa fa-dashboard'></i> Level</a></li>
+            <li class='active'>Here</li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class='content'>
+			<section class='col-lg-12 connectedSortable'>
+				<div class='panel panel-default'>
+					<div class='panel-heading'>
+						<h4 style='color: black;font-family: calibri'>Your Twitter profile</h4>
+					</div>
+					<div class='panel-body'>
+						<div id='page-wrap'>
+			
+							<p>Hello, <span th:text='${profile.name}'>name</span>!</p>
+							<img th:src='${profile.profileImageUrl}'/>
+							<dl>
+								<dt>Twitter ID:</dt>
+								<dd th:text='${profile.id}'>profile id</dd>
+								<dt>Screen name:</dt>
+								<dd><a th:href='${profile.profileUrl}' target='_blank' th:text='${profile.screenName}'>screen name</a></dd>
+								<dt>Description:</dt>
+								<dd th:text='${profile.description}'>description</dd>
+								<dt>Location:</dt>
+								<dd th:text='${profile.location}'>location</dd>
+								<dt>URL:</dt>
+								<dd><a th:href='${profile.url}' th:text='${profile.url}'>profile url</a></dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</section>
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+	  <footer th:replace='fragments/footer :: .th-footer'>
+	  
+	  </footer>
+    </div><!-- ./wrapper -->
+
+    <!-- REQUIRED JS SCRIPTS -->
+
+    <div th:replace='fragments/appJS :: .th-appJS'>
+    	
+    </div>
+  </body>
+</html>

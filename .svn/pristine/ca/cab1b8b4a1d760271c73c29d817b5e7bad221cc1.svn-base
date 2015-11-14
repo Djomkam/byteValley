@@ -1,0 +1,17 @@
+<!-- Main Footer -->
+<footer class='th-footer footer'>
+   <div class='footer_content'>
+       <ul class='ulist'>
+			<li><a href='https://my.atlassian.com/products/index'>My account</a></li>
+			<li><a href='/software'>Products</a></li>
+			<li><a href='/company/events'>Community</a></li>
+			<li>|</li>
+			<li><a href='/company'>Company</a></li>
+			<li><a href='/company/careers'>Careers</a></li>
+			<li><a href='/company/contact'>Contact us</a></li>
+		</ul>
+		<div class='footer_copyright'>
+			Copyright &copy; 2015 <a href='#'>ByteValley</a>. All rights reserved.
+		</div>
+	</div>	
+ </footer>

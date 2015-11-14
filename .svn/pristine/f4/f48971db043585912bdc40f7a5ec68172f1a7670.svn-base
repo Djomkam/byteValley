@@ -1,0 +1,76 @@
+package com.social.manager.service;
+
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.social.manager.entities.Roles;
+import com.social.manager.entities.User;
+import com.social.manager.repository.UserRepository;
+
+@Service
+@Transactional
+public class UserService {
+
+	@Autowired
+	private UserRepository repository;
+	
+	public Boolean create(User user) {
+		User existingUser = repository.findByUsername(user.getUsername());
+		if (existingUser != null) 
+			return false;
+		
+		for(Roles rol : user.getRoles())
+			rol.setUser(user);
+		User saved = repository.save(user);
+		if (saved == null) 
+			return false;
+		
+		return true;
+	}
+	
+	public Boolean update(User user) {
+		User existingUser = repository.findByUsername(user.getUsername());
+		if (existingUser == null) 
+			return false;
+		
+		// Only firstName, lastName, and role fields are updatable
+		existingUser.setFirstName(user.getFirstName());
+		existingUser.setLastName(user.getLastName());
+		
+		for(Roles rol: user.getRoles()){
+			for(Roles r: existingUser.getRoles()){
+				r.setRoleName(rol.getRoleName());
+				r.setUser(rol.getUser());
+			}	
+		}
+		
+		User saved = repository.save(existingUser);
+		if (saved == null) 
+			return false;
+		
+		return true;
+	}
+	
+	public Boolean delete(User user) {
+		User existingUser = repository.findOne(user.getId());
+		if (existingUser == null) 
+			return false;
+		
+		repository.delete(existingUser);
+		User deletedUser = repository.findOne(user.getId());
+		if (deletedUser != null) 
+			return false;
+		
+		return true;
+	}
+	
+	public List<User> findAll(){
+		List<User> list = repository.findAll();
+		return list;
+	}
+}

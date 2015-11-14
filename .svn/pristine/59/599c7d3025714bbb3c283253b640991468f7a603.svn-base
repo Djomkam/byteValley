@@ -1,0 +1,80 @@
+package com.social.manager.entities;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+@Entity
+@Table(name="Roles")
+public class Roles implements Serializable{
+
+	private static final long serialVersionUID = 8008280586667757943L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long role_id;
+	
+	@Column(length=50,nullable=false)
+	private String roleName;
+	
+	@JsonBackReference
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "USER_ID")
+	private User user;
+
+	public Roles(){}
+	
+	public Roles(String roleName) {
+		this.roleName = roleName;
+	}
+
+	public Roles(Long role_id, String roleName) {
+		this.role_id = role_id;
+		this.roleName = roleName;
+	}
+
+	public Roles(User user) {
+		this.user = user;
+	}
+
+	public Roles(Long role_id, String roleName, User user) {
+		this.role_id = role_id;
+		this.roleName = roleName;
+		this.user = user;
+	}
+
+	public Long getId() {
+		return role_id;
+	}
+
+	public void setId(Long role_id) {
+		this.role_id = role_id;
+	}
+
+	public String getRoleName() {
+		return roleName;
+	}
+
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	
+}

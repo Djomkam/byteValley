@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Your facebook</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.2/css/bootstrap.min.css"
+      th:href="@{/webjars/bootstrap/3.3.2/css/bootstrap.min.css}"
+      rel="stylesheet" media="screen" />
+	<link href="http://cdn.jsdelivr.net/webjars/font-awesome/4.3.0-3/css/font-awesome.min.css"
+      th:href="@{/webjars/font-awesome/4.3.0-3/css/font-awesome.min.css}"
+      rel="stylesheet" media="screen" />
+	<link href="http://cdn.jsdelivr.net/webjars/datatables/1.10.7/css/jquery.dataTables.min.css"
+      th:href="@{/webjars/datatables/1.10.7/css/jquery.dataTables.min.css}"
+      rel="stylesheet" media="screen" />
+	<link href="http://cdn.jsdelivr.net/webjars/ionicons/1.5.2/css/ionicons.min.css"
+      th:href="@{/webjars/ionicons/1.5.2/css/ionicons.min.css}"
+      rel="stylesheet" media="screen" />
+    <link rel="stylesheet" th:href="@{/css/site.css}" media="screen" href="../static/css/site.css" />
+	<link rel="stylesheet" th:href="@{/css/theStyle.css}" media="screen" href="../static/css/theStyle.css" />
+    <link href="../static/skin-purple.min.css" th:href="@{/css/skin-purple.min.css}" rel="stylesheet" type="text/css" />
+  </head>
+  <body class="skin-purple sidebar-mini">
+    <div class="wrapper">
+
+      <!-- Main Header -->
+      <header th:replace="header :: header">
+
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside th:replace="sidebar :: aside" >
+
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper" style="height:960px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Page Header
+            <small>Optional description</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+            <li class="active">Here</li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+			<section class="col-lg-12 connectedSortable">
+				<div class="panel panel-default" style="height:905px;overflow:auto">
+					<div class="panel-heading">
+						<h4 style="color: black;font-family: calibri">Your Facebook Feeds</h4>
+					</div>
+					<div class="panel-body">
+						<div id="page-wrap">
+							<table class="table table-bordered table-responsive" id="myTable">
+								<thead class="bg-purp">
+									<tr>
+										<th>Name</th>
+										<th>Message</th>
+										<th>Sentiment</th>
+										<th>Picture</th>
+										<th>Num Of likes</th>
+										<th>Comment Count</th>
+										<th>Comments</th>
+									</tr>
+								</thead>
+								<tbody>
+
+										<tr th:each="post:${feed}">
+											<td th:text="${post.post.from.name}">from</td>
+											<td th:text="${post.post.message}">message text</td>
+											<td th:text="${post.postSentiment}">sentiment</td>
+											<td><img th:if="${post.post.picture}" th:src="${post.post.picture}" /></td>
+											<td th:text="${post.post.likeCount}">num of likes</td>
+											<td th:text="${post.post.commentCount}">comment count</td>
+											<td>
+												<table class="table table-condensed table-responsive">
+													<tr th:each="comment:${post.post.comments}">
+														<td th:text="${comment.from.name}">from</td>
+														<td th:text="${comment.message}">message</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+								</tbody>
+        		            </table>
+						</div>
+					</div>
+				</div>
+			</section>
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+	  <footer th:replace="footer :: footer">
+	  
+	  </footer>
+	  <div class="modal hide fade" id="myModal">
+		  <div class="modal-header">
+		    <a class="close" data-dismiss="modal">×</a>
+		    <h3>Modal header</h3>
+		  </div>
+		  <div class="modal-body">
+		    <p>One fine body…</p>
+		  </div>
+		  <div class="modal-footer">
+		    <a href="#" class="btn">Close</a>
+		    <a href="#" class="btn btn-primary">Save changes</a>
+		  </div>
+		</div>
+    </div><!-- ./wrapper -->
+
+    <!-- REQUIRED JS SCRIPTS -->
+
+    <script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.2/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/3.3.2/bootstrap.min.js}" type="text/javascript"></script>
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+        th:src="@{/webjars/jquery/2.1.4/jquery.min.js}" type="text/javascript"></script>
+     <script src="../static/js/jquery-2.1.4.min.js" th:src="@{/js/jquery-2.1.4.min.js}" type="text/javascript"></script>
+	<script src="http://cdn.jsdelivr.net/webjars/datatables/1.10.7/jquery.dataTables.min.js"
+        th:src="@{/webjars/datatables/1.10.7/jquery.dataTables.min.js}" type="text/javascript"></script>
+	<script src="http://cdn.jsdelivr.net/webjars/jQuery-slimScroll/1.3.3/jquery.slimscroll.min.js"
+        th:src="@{/webjars/jQuery-slimScroll/1.3.3/jquery.slimscroll.min.js}" type="text/javascript"></script>
+    <script src="../static/js/app.min.js" th:src="@{/js/app.min.js}" type="text/javascript"></script>
+   
+    
+	<script type="text/javascript" th:inline="javascript">
+	/*<![CDATA[*/
+		$(function(){
+			$("#page-wrap").slimScroll({
+				height: '785px',
+				width: '100%',
+				scrollTo: '50px',
+				size: '5px'
+			});
+			$("#myTable").DataTable({
+				"info": false,
+				"searching": false,
+				"ordering": false,
+				"pageLength": 10
+			});
+		});
+	/*]]>*/
+</script>
+		<div th:if="${param.req == 1}">
+    		<script type="text/javascript" th:inline="javascript">  
+		    /*<![CDATA[*/
+			    $(window).load(function(){
+			        $('#myModal').modal('show');
+			    });
+			/*]]>*/
+		    </script>
+		</div>
+    <!-- Optionally, you can add Slimscroll and FastClick plugins.
+          Both of these plugins are recommended to enhance the
+          user experience. Slimscroll is required when using the
+          fixed layout. -->
+  </body>
+</html>

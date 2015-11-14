@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang='en' 
+	xmlns:th='http://www.thymeleaf.org'
+	xmlns:sec='http://www.thymeleaf.org/thymeleaf-extras-springsecurity3'
+	xmlns:social='http://spring.io/springsocial'>
+  <head th:replace='fragments/head :: facebook-head'>
+    
+  </head>
+  <body class='skin-black sidebar-mini'>
+    <div class='wrapper'>
+
+      <!-- Main Header -->
+      <header th:replace='fragments/header :: header'>
+
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside th:replace='fragments/sidebar :: th-sidebar'>
+
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class='content-wrapper' style='height:765px;'>
+        <!-- Content Header (Page header) -->
+        <section class='content-header'>
+          <h1>
+            Page Header
+            <small>Optional description</small>
+          </h1>
+          <ol class='breadcrumb'>
+            <li><a href='#'><i class='fa fa-dashboard'></i> Level</a></li>
+            <li class='active'>Here</li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class='content'>
+			<section class='col-lg-12 connectedSortable'>
+				<div class='panel panel-default' style='height:700px;overflow-y:auto'>
+					<div class='panel-heading'>
+						<h4 style='color: black;font-family: calibri'>Your LinkedIn Connections</h4>
+					</div>
+					<div class='panel-body'>
+						<div id='page-wrap'>
+			
+							<p>First degree count: <span th:text='${firstDegreeCount}'>first degree count</span></p>
+							<p>Second degree count: <span th:text='${secondDegreeCount}'>second degree count</span></p>
+							
+							<ul class='friends'>
+								<li th:each='connection : ${connections}'>
+								<img th:src='${connection.profilePictureUrl}' align='middle'/><span th:text='${connection.firstName}'></span> <span th:text='${connection.lastName}'></span></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+	  <footer th:replace='fragments/footer :: .th-footer'>
+	  
+	  </footer>
+    </div><!-- ./wrapper -->
+
+    <!-- REQUIRED JS SCRIPTS -->
+
+    <div th:replace='fragments/appJS :: .th-appJS'>
+    	
+    </div>
+  </body>
+</html>

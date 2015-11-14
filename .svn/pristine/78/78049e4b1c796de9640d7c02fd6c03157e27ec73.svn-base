@@ -1,0 +1,13 @@
+<!-- Main Footer -->
+<footer class="main-footer" style="background-color: #205081; color: #fff; height:10em; position:absolute; bottom: 0px; left: 0px; width:100%;">
+        <!-- To the right -->
+        <div class="pull-right hidden-xs">
+          ByteValley
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2015 <a href="#">ByteValley</a>.</strong> All rights reserved.
+ </footer>
+ 
+ <div id="footer">
+	<strong>Copyright &copy; 2015 <a href="#">Company</a>.</strong> All rights reserved.
+ </div>

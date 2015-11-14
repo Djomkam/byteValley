@@ -1,0 +1,72 @@
+package com.social.manager.entities;
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+@Entity(name="role")
+public class Role implements Serializable {
+	
+	private static final long serialVersionUID = -3055743542719445156L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	
+	@JsonBackReference
+	@OneToOne
+	private User user;
+	
+	private Integer rol;
+	
+	@JsonManagedReference
+	@OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
+	private List<Roles> r;
+
+	public Role() {}
+	
+	public Role(Integer role, User user) {
+		this.rol = role;
+		this.user = user;
+	}
+	
+	public Role(Integer role) {
+		this.rol = role;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public Integer getRole() {
+		return rol;
+	}
+	public void setRole(Integer role) {
+		this.rol = role;
+	}
+	public List<Roles> getR() {
+		return r;
+	}
+
+	public void setR(List<Roles> r) {
+		this.r = r;
+	}
+}

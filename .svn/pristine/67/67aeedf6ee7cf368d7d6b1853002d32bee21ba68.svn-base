@@ -1,0 +1,9 @@
+.bg-purp{
+	background-color: #240B3B;
+	color: #fff;
+}
+
+.login-error{
+	color: #f00;
+	font-size: 17px;
+}

@@ -1,0 +1,36 @@
+<header class='main-header'>
+	<!-- Logo -->
+        <a href='/home' class='logo'>
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <span class='logo-mini'><b>A</b>LT</span>
+          <!-- logo for regular state and mobile devices -->
+          <span class='logo-lg'><b>Admin</b>LTE</span>
+        </a>
+	<nav class='navbar navbar-static-top' role='navigation'>
+	<a href='#' class='sidebar-toggle' data-toggle='offcanvas' role='button'>
+            <span class='sr-only'>Toggle navigation</span>
+    </a>
+			<div class='collapse navbar-collapse' id='myNavbar'>
+			  <ul class='nav navbar-nav' style='margin-left: 300px'>
+				<li class='active'><a href='/home'>Home</a></li>
+				<li class='dropdown'>
+				  <a class='dropdown-toggle' data-toggle='dropdown' href='#'>Accounts<span class='caret'></span></a>
+				  <ul class='dropdown-menu'>
+					<li><a href='/facebook'>Facebook</a></li>
+					<li><a href='/linkedin'>LinkedIn</a></li>
+					<li><a href='/twitter'>Twitter</a></li>
+				  </ul>
+				</li>
+				<li><a href='#'>Reports</a></li>
+				<li><a href='#'>Analytics</a></li>
+			  </ul>
+			  <ul class='nav navbar-nav navbar-right'>
+	      		<li><a th:href='@{__${#httpServletRequest.requestURI}__?lang=fr}'>&nbsp;FR</a></li>
+	      		<li><a th:href='@{__${#httpServletRequest.requestURI}__?lang=en}'>EN</a></li>
+	      	  </ul>
+			  <ul class='nav navbar-nav navbar-right'>
+				<li><a href='/logout'><span class='glyphicon glyphicon-user'></span> Sign Up</a></li>
+			  </ul>
+			</div>
+		</nav>
+</header>

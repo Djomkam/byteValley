@@ -1,0 +1,9 @@
+package com.social.manager.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.social.manager.entities.Role;
+
+public interface RoleRepository extends JpaRepository<Role, Long> {
+
+}

@@ -1,0 +1,35 @@
+/***********************************/
+/* LOGIN  CSS FILE				   */
+/* 								   */
+/* Yong Nkfum Sept, 13 2015		   */
+/* ByteValley. All rights reserved */
+/* 								   */
+/***********************************/
+
+.login_boxes {
+	margin: auto; 
+	border: 1px solid #C0D9F0;
+	border-radius: 1%;  
+	padding: 2em; 
+}
+
+.login_box {
+	margin-bottom: 5em;
+	width: 30em; 
+	height: 32em; 	
+}
+
+.login_box_content {
+	height: 90%; 
+	background-color: #f2f7fc;
+}
+
+.sign_in_message {
+	margin: auto; 
+	height: 10%;
+	font-size: 150%; 
+}
+
+.login_box_content hr {
+	border-color: #C0D9F0;
+}

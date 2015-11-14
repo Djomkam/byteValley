@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+
+    <meta charset="utf-8" />
+	<meta charset="ISO-8859-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Your Facebook</title>
+
+    <link rel="stylesheet" th:href="@{/css/simple-sidebar.css}" media="screen" href="../static/css/simple-sidebar.css" />
+	<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.2/css/bootstrap.min.css"
+      th:href="@{/webjars/bootstrap/3.3.2/css/bootstrap.min.css}"
+      rel="stylesheet" media="screen" />
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+		<nav th:replace="header :: nav">
+
+		</nav>
+        <div th:replace="sidebar :: #sidebar-wrapper">
+
+		</div>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <table class="table table-bordered table-responsive">
+                            <thead>
+                                <tr class="bg-primary">
+                                    <th>Name</th>
+                                    <th>Message</th>
+        			                      <th>Sentiment</th>
+                                    <th>Picture</th>
+        			                      <th>Num Of likes</th>
+        			                      <th>Comment Count</th>
+        			                      <th>Comments</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                        			<tr th:each="post:${feed}">
+                        				<td th:text="${post.post.from.name}">from</td>
+                        				<td th:text="${post.post.message}">message text</td>
+                        				<td th:text="${post.postSentiment}">sentiment</td>
+                        				<td><img th:if="${post.post.picture}" th:src="${post.post.picture}"/></td>
+                        				<td th:text="${post.post.likeCount}">num of likes</td>
+                        				<td th:text="${post.post.commentCount}">comment count</td>
+                        				<td>
+                        					<table class="table table-condensed">
+                        						<tr th:each="comment:${post.post.comments}">
+                        							<td th:text="${comment.from.name}">from</td>
+                        							<td th:text="${comment.message}">message</td>
+                        						</tr>
+                        					</table>
+                        				</td>
+                        		 	</tr>
+        		                </tbody>
+        		              </table>
+                          <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                    </div>
+                </div>
+                <!-- footer -->
+				<footer th:replace="footer :: footer">
+		
+				</footer>
+				<!-- /footer -->
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+        </div>
+    <!-- /#wrapper -->
+
+	<script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.2/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/3.3.2/bootstrap.min.js}"></script>
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.0.0-alpha1/jquery.min.js"
+        th:src="@{/webjars/jquery/3.0.0-alpha1/jquery.min.js}"></script>
+        
+        
+   <script th:inline="javascript">
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+package com.social.manager.controller.facebook;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@RequestMapping("/dashboard")
+@Controller
+public class DashboardController {
+
+	@RequestMapping(method=RequestMethod.GET)
+	public String getDasboard(Model model)
+	{
+		return "dashboard";
+	}
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang='en' 
+	xmlns:th='http://www.thymeleaf.org'
+	xmlns:sec='http://www.thymeleaf.org/thymeleaf-extras-springsecurity3'>
+  <head th:replace='fragments/head :: th-head'>
+    
+  </head>
+  <body class='skin-black sidebar-mini'>
+    <div class='wrapper'>
+
+      <!-- Main Header -->
+      <header th:replace='fragments/header :: header'>
+
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside th:replace='fragments/sidebar :: th-sidebar'>
+
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class='content-wrapper' style='height:765px;'>
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Page Header
+            <small>Optional description</small>
+          </h1>
+          <ol class='breadcrumb'>
+            <li><a href='#'><i class='fa fa-dashboard'></i>Dashboard</a></li>
+            <li class='active'>Feeds</li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class='content'>
+			<section class='col-lg-12 connectedSortable'>
+				<div class='panel panel-default' style='height:700px;overflow-y:auto'>
+					<div class='panel-heading'>
+						<h4 style='color: black;font-family: calibri'>Your Facebook Feeds</h4>
+					</div>
+					<div class='panel-body'>
+						<div id='page-wrap'>
+							<table class='table table-bordered table-responsive' id='myTable'>
+								<thead class='bg-purp'>
+									<tr>
+										<th>Name</th>
+										<th>Message</th>
+										<th>Sentiment</th>
+										<th>Picture</th>
+										<th>Num Of likes</th>
+										<th>Comment Count</th>
+										<th>Comments</th>
+									</tr>
+								</thead>
+								<tbody>
+
+										<tr th:each='post:${feed}'>
+											<td th:text='${post.post.from.name}'>from</td>
+											<td th:text='${post.post.message}'>message text</td>
+											<td th:text='${post.postSentiment}'>sentiment</td>
+											<td><img th:if='${post.post.picture}' th:src='${post.post.picture}' /></td>
+											<td th:text='${post.post.likeCount}'>num of likes</td>
+											<td th:text='${post.post.commentCount}'>comment count</td>
+											<td>
+												<table class='table table-condensed table-responsive'>
+													<tr th:each='comment:${post.post.comments}'>
+														<td th:text='${comment.from.name}'>from</td>
+														<td th:text='${comment.message}'>message</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+								</tbody>
+        		            </table>
+						</div>
+					</div>
+				</div>
+			</section>
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+	  <footer th:replace='fragments/footer :: .th-footer'>
+	  
+	  </footer>
+	  <div class='modal hide fade' id='myModal'>
+		  <div class='modal-header'>
+		    <a class='close' data-dismiss='modal'>&times;</a>
+		    <h3>Modal header</h3>
+		  </div>
+		  <div class='modal-body'>
+		    <p>One fine body…</p>
+		  </div>
+		  <div class='modal-footer'>
+		    <a href='#' class='btn'>Close</a>
+		    <a href='#' class='btn btn-primary'>Save changes</a>
+		  </div>
+		</div>
+    </div><!-- ./wrapper -->
+
+    <!-- REQUIRED JS SCRIPTS -->
+
+    <div th:replace='fragments/appJS :: .th-appJS'>
+    	
+    </div>
+		<div th:if='${param.req == 1}'>
+    		<script type='text/javascript'>  
+			    $(window).load(function(){
+			        $('#myModal').modal('show');
+			    });
+		    </script>
+		</div>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" 
+	xmlns:th="http://www.thymeleaf.org" 
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+  <head th:replace="/admin/fragments/head :: admin-head">
+    
+  </head>
+  <body class="skin-purple sidebar-mini">
+    <div class="wrapper">
+
+      <!-- Main Header -->
+      <header th:replace="/fragments/header :: header">
+
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside th:replace="/admin/fragments/sidebar :: admin-sidebar" >
+
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper" style="height:640px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Page Header
+            <small>Optional description</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+            <li class="active">Here</li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+			<section class="col-lg-12 connectedSortable">
+				<div class="panel panel-default" style="height:550px;">
+					<div class="panel-heading">
+						<h4 style="color: black;font-family: calibri">List of Roles</h4>
+					</div>
+					<div class="panel-body">
+						<div id="page-wrap">
+							<table class="table table-bordered table-responsive" id="myTable">
+								<thead class="bg-purp">
+									<tr>
+										<th>Role Name</th>
+										<th>Options</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="role:${roles}">
+										<td th:text="${role.roleName}">roleName</td>
+										<td>
+											<a  data-target="#addWidgetModal"  data-toggle="modal" href="#" onclick="document.getElementById('fade').style.display='block'">
+    <button type="button" class="btn btn-xs btn-default" >Modify</button></a> &nbsp;
+   <a  data-target="#addWidgetModal"  data-toggle="modal" href="#" onclick="document.getElementById('fade').style.display='block'">
+    <button type="button" class="btn btn-xs btn-default" >Delete</button></a>
+										</td>
+									</tr>
+								</tbody>
+        		            </table>
+						</div>
+					</div>
+				</div>
+			</section>
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+	  <footer th:replace="/fragments/footer :: footer">
+	  
+	  </footer>
+    </div><!-- ./wrapper -->
+
+    <!-- REQUIRED JS SCRIPTS -->
+
+    <div th:replace="/admin/fragments/head :: #admin-jscode">
+    
+    </div>
+  </body>
+</html>

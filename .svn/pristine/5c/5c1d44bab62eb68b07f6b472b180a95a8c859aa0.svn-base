@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+
+<head>
+	<title>The Login Page</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script type="application/x-javascript" th:inline="javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!--  <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,300,600,700' media="screen" rel='stylesheet' type='text/css' />-->
+		<link rel="stylesheet" th:href="@{/css/style.css}" media="screen" href="../static/css/style.css" />
+</head>
+<body>
+
+				 <!--  start-main -->
+				<div class="container-fluid">
+					<!--start of the login form-->
+					<div class="login-form">
+						<div class="head">
+							<img th:src ="@{/images/mem2.jpg}" src="../static/images/mem2.jpg" alt=""/>
+
+						</div>
+						<form action="#" method="post" th:action="@{/login}" th:object="${user}">
+							<li>
+								<input type="text" class="text" name="username" placeholder="Username" th:field="*{username}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}" /><a href="#" class=" icon user" ></a>
+								<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</p>
+							</li>
+							<li>
+								<input type="password"  name="password" placeholder="Password" th:field="*{password}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" /><a href="#" class=" icon lock"></a>
+								<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</p>
+							</li>
+							<div class="p-container">
+										<label class="checkbox"><input type="checkbox" name="checkbox" checked="checked" /><i></i>Remember Me</label>
+										<input type="submit" value="SIGN IN" />
+									<div class="clear"> </div>
+							</div>
+						</form>
+					</div>
+					<!--//End-login-form-->
+			  	<!--start-copyright-->
+	   			<div class="copy-right">
+							<p th:include="footer :: footer"></p>
+					</div>
+					<!--//end-copyright-->
+			</div>
+</body>
+</html>

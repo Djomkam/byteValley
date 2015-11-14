@@ -1,0 +1,4 @@
+.bg-purp{
+	background-color: #240B3B;
+	color: #fff;
+}

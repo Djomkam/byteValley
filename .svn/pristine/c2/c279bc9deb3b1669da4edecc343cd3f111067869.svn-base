@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head th:fragment="facebook-head">
+    <title>Your facebook</title>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.2/css/bootstrap.min.css"
+      th:href="@{/webjars/bootstrap/3.3.2/css/bootstrap.min.css}"
+      rel="stylesheet" media="screen" />
+	<link href="http://cdn.jsdelivr.net/webjars/font-awesome/4.3.0-3/css/font-awesome.min.css"
+      th:href="@{/webjars/font-awesome/4.3.0-3/css/font-awesome.min.css}"
+      rel="stylesheet" media="screen" />
+	<link href="http://cdn.jsdelivr.net/webjars/datatables/1.10.7/css/jquery.dataTables.min.css"
+      th:href="@{/webjars/datatables/1.10.7/css/jquery.dataTables.min.css}"
+      rel="stylesheet" media="screen" />
+	<link href="http://cdn.jsdelivr.net/webjars/ionicons/1.5.2/css/ionicons.min.css"
+      th:href="@{/webjars/ionicons/1.5.2/css/ionicons.min.css}"
+      rel="stylesheet" media="screen" />  
+    <link rel="stylesheet" th:href="@{/css/site.css}" media="screen" href="../static/css/site.css" />
+	<link rel="stylesheet" th:href="@{/css/theStyle.css}" media="screen" href="../static/css/theStyle.css" />
+    <link href="../static/skin-purple.min.css" th:href="@{/css/skin-purple.min.css}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+</body>
+</html>

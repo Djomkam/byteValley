@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.2/css/bootstrap.min.css"
+      th:href="@{/webjars/bootstrap/3.3.2/css/bootstrap.min.css}"
+      rel="stylesheet" media="screen" />
+	<link href="http://cdn.jsdelivr.net/webjars/font-awesome/4.3.0-3/css/font-awesome.min.css"
+      th:href="@{/webjars/font-awesome/4.3.0-3/css/font-awesome.min.css}"
+      rel="stylesheet" media="screen" /> 
+	  <link href="http://cdn.jsdelivr.net/webjars/ionicons/1.5.2/css/ionicons.min.css"
+      th:href="@{/webjars/ionicons/1.5.2/css/ionicons.min.css}"
+      rel="stylesheet" media="screen" />
+    <link rel="stylesheet" th:href="@{/css/site.css}" media="screen" href="../static/css/site.css" />
+    <link href="../static/skin-purple.min.css" th:href="@{/css/skin-purple.min.css}" rel="stylesheet" type="text/css" />
+  </head>
+  <body class="skin-purple sidebar-mini">
+    <div class="wrapper">
+
+      <!-- Main Header -->
+      <header th:replace="header :: header">
+
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside th:replace="sidebar :: aside">
+
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Page Header
+            <small>Optional description</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+            <li class="active">Here</li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+			<section class="col-lg-7 connectedSortable">
+				<div class="box box-primary">
+					<div class="box-header">
+						<i class="ion ion-clipboard"></i>
+						<h3 class="box-title">Chart</h3>
+						<div class="box-tools pull-right">
+							Chart goes here
+						</div>
+					</div>
+					<div class="box-body">
+						
+					</div>
+					<div class="box-footer clearfix no-border">
+					
+					</div>
+				</div>
+			</section>
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+	  <footer th:replace="footer :: footer">
+	  
+	  </footer>
+      <div class="control-sidebar-bg"></div>
+    </div><!-- ./wrapper -->
+
+    <!-- REQUIRED JS SCRIPTS -->
+
+    <script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.2/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/3.3.2/bootstrap.min.js}"></script>
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.0.0-alpha1/jquery.min.js"
+        th:src="@{/webjars/jquery/3.0.0-alpha1/jquery.min.js}"></script>
+    <script src="../static/js/app.min.js" th:src="@{/js/app.min.js}" type="text/javascript"></script>
+
+    <!-- Optionally, you can add Slimscroll and FastClick plugins.
+          Both of these plugins are recommended to enhance the
+          user experience. Slimscroll is required when using the
+          fixed layout. -->
+  </body>
+</html>

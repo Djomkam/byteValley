@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" 
+	xmlns:th="http://www.thymeleaf.org" 
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:social="http://spring.io/springsocial">
+  <head th:replace="/admin/fragments/head :: admin-head">
+    
+  </head>
+  <body class="skin-purple sidebar-mini">
+    <div class="wrapper">
+
+      <!-- Main Header -->
+      <header th:replace="/fragments/header :: header">
+
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside th:replace="/admin/fragments/sidebar :: admin-sidebar" >
+
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper" style="height:640px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Page Header
+            <small>Optional description</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+            <li class="active">Here</li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+			<section class="col-lg-12 connectedSortable">
+				<div class="panel panel-default" style="height:550px;">
+					<div class="panel-heading">
+						<h4 style="color: black;font-family: calibri">Create a User</h4>
+					</div>
+					<div class="panel-body">
+						<div id="page-wrap">
+							<div class="register-box">
+						      <div class="register-box-body">
+						        <p class="login-box-msg">Add a new User</p>
+						        <form action="#" th:action="@{/admin/user/add}" method="post" th:object="${user}">
+						          <div class="form-group has-feedback">
+						            <input type="text" class="form-control" placeholder="Firstname" th:field="*{firstName}"/>
+						            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+						          </div><br/>
+						          <div class="form-group has-feedback">
+						            <input type="text" class="form-control" placeholder="Lastname" th:field="*{lastName}"/>
+						            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+						          </div><br/>
+						          <div class="form-group has-feedback">
+						            <input type="text" class="form-control" placeholder="Username" th:field="*{username}"/>
+						            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+						          </div><br/>
+						          <div class="form-group has-feedback">
+						            <input type="password" class="form-control" placeholder="Password" th:field="*{password}"/>
+						            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+						          </div><br/>
+						          <div class="form-group has-feedback">
+						            <select class="form-control" multiple="multiple" th:field="*{roles}">
+						            		<option th:each="role:${rols}" th:value="${role.id}" th:text="${role.roleName}">Select Role</option>
+						            </select>
+						          </div><br/>
+						          <div class="row">
+						          	<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+						            <div class="col-xs-4">
+						              <button type="submit" class="btn btn-primary btn-block btn-flat">Add User</button>
+						            </div><!-- /.col -->
+						          </div>
+						        </form>
+						      </div><!-- /.form-box -->
+						    </div><!-- /.register-box -->
+						</div>
+					</div>
+				</div>
+			</section>
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+	  <footer th:replace="fragments/footer :: footer">
+	  
+	  </footer>
+    </div><!-- ./wrapper -->
+
+    <!-- REQUIRED JS SCRIPTS -->
+
+    <div th:replace="/admin/fragments/head :: #admin-jscode">
+    
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,23 @@
+body {
+	background-color: #240B3B;
+}
+
+  .container-fluid
+    {
+        padding-left: 5px;
+		padding-top: 3px;
+		border-radius: 7px;
+		width:25%;
+		margin-top:100px;
+    }
+  .social-menu a
+    {
+        margin-top: 10px;
+    }
+	hr {
+		margin-top: -20px;
+	}
+	ul.nav li a:hover {
+		background-color: white;
+		color: black;
+	}
