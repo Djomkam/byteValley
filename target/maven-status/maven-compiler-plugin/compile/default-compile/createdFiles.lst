@@ -49,6 +49,7 @@ com\api\AlchemyAPI.class
 com\social\manager\controller\facebook\FacebookDashboardController.class
 com\social\manager\controller\twitter\TwitterSearchController.class
 com\social\manager\controller\admin\social\AddSocialController.class
+com\social\manager\controller\app\IndexController.class
 com\social\manager\controller\admin\user\UsersController.class
 com\api\AlchemyAPI_Params.class
 com\social\manager\controller\facebook\FacebookFriendsController.class
